@@ -1,0 +1,38 @@
+<form [formGroup]="registroForm" (ngSubmit)="registrarUsuario()" class="registro-form">
+    <h2>Registro de Usuario</h2>
+
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" type="text" placeholder="Ingrese su nombre" />
+        <div class="error" *ngIf="nombre?.invalid && nombre?.touched">
+            <small *ngIf="nombre?.errors?.['required']">El nombre es obligatorio.</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input id="email" formControlName="email" type="email" placeholder="Ingrese su correo" />
+        <div class="error" *ngIf="email?.invalid && email?.touched">
+            <small *ngIf="email?.errors?.['required']">El correo es obligatorio.</small>
+            <small *ngIf="email?.errors?.['email']">Formato de correo inválido.</small>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="contrasena">Contraseña</label>
+        <input id="contrasena" formControlName="contrasena" type="password" placeholder="Ingrese su contraseña" />
+        <div class="error" *ngIf="contrasena?.invalid && contrasena?.touched">
+            <small *ngIf="contrasena?.errors?.['required']">La contraseña es obligatoria.</small>
+            <small *ngIf="contrasena?.errors?.['pattern']">
+        Debe tener al menos 8 caracteres e incluir:
+        <ul>
+           <li>Una letra mayúscula, una letra minúscula, n número, un carácter especial (&#64; $ ! % * ? & .)</li>
+        </ul>
+      </small>
+        </div>
+    </div>
+
+    <button type="submit" [disabled]="registroForm.invalid">Registrar</button>
+    <button type="button" (click)="cancelar()" style="margin-top: 10px;">Cancelar</button>
+    <p class="mensaje" *ngIf="mensaje">{{ mensaje }}</p>
+</form>

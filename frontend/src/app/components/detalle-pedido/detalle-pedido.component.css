@@ -1,0 +1,116 @@
+/* Estilo para la tabla de detalles del pedido */
+.detalles-pedido-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para las celdas de la tabla */
+.detalles-pedido-table th, .detalles-pedido-table td {
+  padding: 12px;
+  text-align: left;
+  border: 1px solid #ddd;
+  font-size: 16px;
+}
+
+/* Fondo para las cabeceras de la tabla */
+.detalles-pedido-table th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+  color: #333;
+  text-transform: uppercase;
+}
+
+/* Fondo alterno para las filas */
+.detalles-pedido-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Cambio de color de fondo al pasar el ratón sobre una fila */
+.detalles-pedido-table tbody tr:hover {
+  background-color: #f1f1f1;
+  cursor: pointer;
+}
+
+/* Estilo para el título */
+h2 {
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 25px;
+  color: #333;
+}
+
+/* Estilo para el contenedor de los botones y elementos interactivos */
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+/* Efecto hover sobre el botón */
+button:hover {
+  background-color: #0056b3;
+  box-shadow: 0 4px 8px rgba(0, 86, 179, 0.3);
+}
+
+/* Estilo para el texto de "Cargando detalles..." */
+.loading-message {
+  font-size: 18px;
+  font-weight: 600;
+  color: #007bff;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Estilo para el mensaje de "No se encontraron detalles" */
+.no-details-message {
+  font-size: 18px;
+  font-weight: 600;
+  color: #dc3545;
+  text-align: center;
+  margin-top: 50px;
+}
+
+/* Estilo para el selector de estado del pedido */
+.estado-pedido {
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.estado-pedido label {
+  font-size: 16px;
+  color: #333;
+  font-weight: 600;
+}
+
+.estado-pedido select {
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.estado-pedido button {
+  background-color: #28a745;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  padding: 15px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.estado-pedido button:hover {
+  background-color: #218838;
+}

@@ -1,0 +1,60 @@
+<app-navbar ngSkipHydration></app-navbar>
+<div class="container">
+    <h2 class="title">Crear Producto</h2>
+    <form (ngSubmit)="onSubmit()" class="product-form">
+      <div class="form-column">
+        <!-- Columna 1: Nombre, Descripción, Precio, Stock -->
+        <div class="form-group">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" [(ngModel)]="nombre" name="nombre" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="descripcion">Descripción:</label>
+          <textarea id="descripcion" [(ngModel)]="descripcion" name="descripcion" required></textarea>
+        </div>
+  
+        <div class="form-group">
+          <label for="precio">Precio:</label>
+          <input type="number" id="precio" [(ngModel)]="precio" name="precio" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="stock">Stock:</label>
+          <input type="number" id="stock" [(ngModel)]="stock" name="stock" required />
+        </div>
+      </div>
+  
+      <div class="form-column">
+        <!-- Columna 2: Talla, Marca, Categoría, Imagen -->
+        <div class="form-group">
+          <label for="talla">Talla:</label>
+          <input type="text" id="talla" [(ngModel)]="talla" name="talla" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="marca">Marca:</label>
+          <input type="text" id="marca" [(ngModel)]="marca" name="marca" required />
+        </div>
+  
+        <div class="form-group">
+          <label for="id_categoria">Categoría:</label>
+          <select id="id_categoria" [(ngModel)]="id_categoria" name="id_categoria" required>
+            <option [value]="1">Hombre</option>
+            <option [value]="2">Mujer</option>
+            <option [value]="3">Niño</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="imagen">Imagen:</label>
+          <input type="text" id="imagen" [(ngModel)]="imagen" name="imagen" required />
+        </div>
+      </div>
+  
+      <div class="form-actions">
+        <button type="submit" class="submit-btn">Crear Producto</button>
+      </div>
+    </form>
+  </div>
+  

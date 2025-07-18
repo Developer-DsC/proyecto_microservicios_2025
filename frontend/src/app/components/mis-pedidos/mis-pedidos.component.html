@@ -1,0 +1,26 @@
+<app-navbar ngSkipHydration></app-navbar>
+
+<div *ngIf="loading" class="loading">
+    Cargando pedidos...
+</div>
+
+<div *ngIf="!loading && pedidos.length === 0" class="no-pedidos">
+    <p>No tienes pedidos.</p>
+</div>
+
+<div *ngIf="!loading && pedidos.length > 0" class="mis-pedidos">
+    <h2>Historial de Pedidos</h2>
+    <ul>
+        <li *ngFor="let pedido of pedidos" class="pedido-item">
+            <div class="pedido-image" style="display: flex;">
+                <img src="https://img.freepik.com/fotos-premium/vendedores-linea-estan-empacando-zapatos-caja-entregar-productos-compradores-pedidos-sitio-web_112699-541.jpg" alt="Pedido" />
+            </div>
+            <div class="cont">
+                <p><strong>ID del Pedido:</strong> {{ pedido.id_pedido }}</p>
+                <p><strong>Total:</strong> {{ pedido.total | currency }}</p>
+                <p><strong>Estado:</strong> {{ pedido.estado }}</p>
+                <button (click)="verDetalles(pedido.id_pedido)" class="ver-mas-btn">Ver más</button>
+            </div>
+        </li>
+    </ul>
+</div>

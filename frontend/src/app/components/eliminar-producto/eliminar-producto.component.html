@@ -1,0 +1,66 @@
+<app-navbar ngSkipHydration></app-navbar>
+<div class="container">
+    <h2 class="title">Eliminar Producto</h2>
+
+    <!-- Sección de búsqueda de producto -->
+    <div class="search-container">
+        <label for="buscarId">Buscar Producto por ID:</label>
+        <input type="number" id="buscarId" [(ngModel)]="idBuscar" name="buscarId" placeholder="Ingrese ID del producto" />
+        <button type="button" class="search-btn" (click)="buscarProducto()">Buscar</button>
+    </div>
+
+    <!-- Formulario con detalles del producto si se encuentra -->
+    <form *ngIf="producto" (ngSubmit)="eliminarProducto()" class="product-form">
+        <div class="form-column">
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" [(ngModel)]="producto.nombre" name="nombre" required disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion">Descripción:</label>
+                <textarea id="descripcion" [(ngModel)]="producto.descripcion" name="descripcion" required disabled></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" id="precio" [(ngModel)]="producto.precio" name="precio" required disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" id="stock" [(ngModel)]="producto.stock" name="stock" required disabled />
+            </div>
+        </div>
+
+        <div class="form-column">
+            <div class="form-group">
+                <label for="talla">Talla:</label>
+                <input type="text" id="talla" [(ngModel)]="producto.talla" name="talla" required disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="marca">Marca:</label>
+                <input type="text" id="marca" [(ngModel)]="producto.marca" name="marca" required disabled />
+            </div>
+
+            <div class="form-group">
+                <label for="id_categoria">Categoría:</label>
+                <select id="id_categoria" [(ngModel)]="producto.id_categoria" name="id_categoria" required disabled>
+                    <option [value]="1">Hombre</option>
+                    <option [value]="2">Mujer</option>
+                    <option [value]="3">Niño</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="imagen">Imagen:</label>
+                <input type="text" id="imagen" [(ngModel)]="producto.imagen" name="imagen" required disabled />
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-btn">Eliminar Producto</button>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,21 @@
+<app-navbar></app-navbar>
+<div class="carrito-container">
+    <h2>Carrito de Compras</h2>
+
+    <div *ngIf="carrito.length == 0">
+        <p>Tu carrito está vacío.</p>
+    </div>
+
+    <div *ngFor="let item of carrito" class="carrito-item">
+        <img [src]="item.imagen.startsWith('http') ? item.imagen : '../assets/imagenes/' + item.imagen" alt="Imagen del producto" class="producto-imagen">
+        <div class="producto-detalle">
+            <h3>{{ item.nombre_producto }}</h3>
+            <p>Cantidad: {{ item.cantidad }}</p>
+            <p>Precio C/U: ${{ item.precio }}</p>
+            <button class="btn-eliminar" (click)="eliminarProducto(item.id_producto)">Eliminar</button>
+        </div>
+    </div>
+
+    <button *ngIf="carrito.length > 0" (click)="vaciarCarrito()" class="btn-vaciar">Vaciar Carrito</button>
+    <button *ngIf="carrito.length > 0" (click)="realizarPedido()" class="btn-vaciar" style="margin: 10px; background-color: rgb(19, 185, 69);">Realizar pedido</button>
+</div>

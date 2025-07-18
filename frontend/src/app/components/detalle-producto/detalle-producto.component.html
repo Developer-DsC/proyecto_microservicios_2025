@@ -1,0 +1,51 @@
+<app-navbar></app-navbar>
+<div>
+    <div class="botonvolver">
+        <button class="volver" (click)="volver()">Volver</button>
+    </div>
+    <div class="producto-detalle">
+        <div class="imagen-principal">
+            <img [src]="producto.imagen" alt="Imagen del producto" />
+        </div>
+        <div class="info-detalle">
+            <h1>{{ producto.nombre }}</h1>
+            <hr class="linea" />
+            <p class="descripcion">{{ producto.descripcion }}</p>
+            <p class="marca">
+                <span class="atributo">Marca:</span>
+                <span class="valor">{{ producto.marca }}</span>
+            </p>
+            <p class="talla">
+                <span class="atributo">Talla:</span>
+                <span class="valor">{{ producto.talla }}</span>
+            </p>
+            <p class="precio">
+                <span class="atributo">Precio:</span>
+                <span class="valor">${{ producto.precio }}</span>
+            </p>
+            <p *ngIf="producto.stock === 1" class="stock">
+                <span class="atributo">Stock:</span>
+                <span class="valor">Solo queda 1 unidad</span>
+            </p>
+            <p *ngIf="producto.stock > 1" class="stock">
+                <span class="atributo">Stock disponible:</span>
+                <span class="valor">{{ producto.stock }}</span>
+            </p>
+            <!-- Sección para seleccionar cantidad -->
+            <div class="cantidad">
+                <label for="cantidad">Cantidad:</label>
+                <select id="cantidad" [(ngModel)]="cantidadSeleccionada">
+          <option *ngFor="let cantidad of cantidadOpciones" [value]="cantidad">
+            {{ cantidad }}
+          </option>
+        </select>
+            </div>
+            <div class="botones">
+                <!-- Si el texto del botón es "Ver carrito", redirige al carrito, de lo contrario agrega al carrito -->
+                <button (click)="botonTexto === 'Ver carrito' ? verCarrito() : agregarAlCarrito()">
+          {{ botonTexto }}
+        </button>
+            </div>
+        </div>
+    </div>
+</div>

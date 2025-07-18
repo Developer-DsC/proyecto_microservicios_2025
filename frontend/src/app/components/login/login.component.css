@@ -1,0 +1,167 @@
+.fondo {
+    height: 95vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    /* Centra horizontalmente */
+    align-items: center;
+    /* Centra verticalmente */
+    background-color: #e4cd82;
+    /* Color de fondo */
+}
+
+
+/* Contenedor principal */
+
+.container {
+    display: flex;
+    width: 90%;
+    height: 90vh;
+    /* Mantiene la altura fija en el 90% de la pantalla */
+    justify-content: center;
+    position: absolute;
+    top: 7%;
+    left: 6%;
+    margin: -25px 0 0 -25px;
+    align-items: stretch;
+    /* Asegura que los elementos tengan la misma altura */
+}
+
+
+/* Contenedor de la imagen */
+
+.image-container {
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    height: 100%;
+    /* Asegura que el contenedor tenga la misma altura */
+}
+
+
+/* Imagen */
+
+.image-container img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    /* La imagen ocupará todo el espacio disponible */
+}
+
+
+/* Contenedor del formulario */
+
+form {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centra los elementos dentro del formulario */
+    align-items: center;
+    flex: 1;
+    width: 100%;
+    max-width: 800px;
+    height: 89%;
+    /* Igual altura que la imagen */
+}
+
+
+/* Títulos */
+
+form h2 {
+    color: #333;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+
+/* Estilos de los inputs */
+
+input {
+    width: 100%;
+    padding: 0.9rem;
+    margin: 1rem 0;
+    border: 2px solid #e2e2e2;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: border-color 0.3s ease;
+}
+
+
+/* Efecto al enfocar los inputs */
+
+input:focus {
+    border-color: #a89f91;
+    /* Beige oscuro */
+    outline: none;
+}
+
+
+/* Estilo del botón */
+
+button {
+    width: 100%;
+    padding: 0.9rem;
+    background-color: #a89f91;
+    /* Beige oscuro */
+    color: #fff;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+
+/* Efecto al pasar el cursor sobre el botón */
+
+button:hover {
+    background-color: #8f7e6d;
+    /* Beige más oscuro */
+}
+
+input.invalid,
+select.invalid {
+    border: 1px solid red;
+}
+
+
+/* Estilo para el mensaje de error */
+
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+
+/* Estilo para el contenedor del formulario en pantallas pequeñas */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        text-align: center;
+    }
+    .image-container {
+        display: none;
+        /* Esconde la imagen en pantallas pequeñas */
+    }
+    form {
+        width: 90%;
+        margin: 2rem 0;
+    }
+    button {
+        font-size: 1rem;
+    }
+}

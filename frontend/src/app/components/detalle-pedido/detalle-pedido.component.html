@@ -1,0 +1,45 @@
+<app-navbar ngSkipHydration></app-navbar>
+<div *ngIf="loading">Cargando detalles del pedido...</div>
+
+<div *ngIf="!loading && detallesPedido.length === 0">
+    <p>No se encontraron detalles para este pedido.</p>
+</div>
+<!-- Botón para regresar -->
+<br>
+<button (click)="volver()">Volver a Mis Pedidos</button>
+<div *ngIf="!loading && detallesPedido.length > 0">
+    <h2>Detalles del Pedido #{{ idPedido }}</h2>
+
+    <table class="detalles-pedido-table">
+        <thead>
+            <tr>
+                <th>ID Producto</th>
+                <th>Nombre del producto</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let detalle of detallesPedido">
+                <td>{{ detalle.id_producto }}</td>
+                <td>{{ detalle.nombre_producto }}</td>
+                <td>{{ detalle.cantidad }}</td>
+                <td>{{ detalle.precio | currency }}</td>
+                <td>{{ (detalle.cantidad * detalle.precio) | currency }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <!-- Cambio de estado del pedido -->
+    <div class="estado-pedido">
+        <label for="estado">Estado del Pedido:</label>
+        <select id="estado" [(ngModel)]="nuevoEstado">
+      <option value="pendiente">Pendiente</option>
+      <option value="enviado">Enviado</option>
+      <option value="entregado">Entregado</option>
+      <option value="cancelado">Cancelado</option>
+    </select>
+        <button (click)="cambiarEstado()">Cambiar Estado</button>
+    </div>
+</div>

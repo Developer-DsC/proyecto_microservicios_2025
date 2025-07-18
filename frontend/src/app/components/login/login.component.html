@@ -1,0 +1,28 @@
+<div class="fondo">
+    <div class="container">
+        <!-- Contenedor de la imagen a la izquierda -->
+        <div class="image-container">
+            <img src="https://i5.walmartimages.com/asr/5dec06ba-8759-42bd-a8eb-003ad6749a85.5449aa9b94dde61e07df4094b36b33b0.jpeg" alt="Imagen de login">
+        </div>
+
+        <!-- Formulario de inicio de sesión -->
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <h2>Bienvenidos a Yaely Shoes</h2>
+
+            <!-- Campo de email -->
+            <input type="email" formControlName="email" placeholder="Email" />
+            <div class="error" *ngIf="email?.invalid && email?.touched">
+            </div>
+
+            <!-- Campo de contraseña -->
+            <input type="password" formControlName="password" placeholder="Contraseña" />
+            <div class="error" *ngIf="password?.invalid && password?.touched">
+            </div>
+
+            <button type="submit">Iniciar Sesión</button>
+            <button type="button" (click)="registrar()" style="margin-top: 10px; background-color: rgb(122, 122, 17);">
+    Registrarse
+  </button>
+
+            <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+        </form>

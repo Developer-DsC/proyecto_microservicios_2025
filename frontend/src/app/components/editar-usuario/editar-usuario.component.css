@@ -1,0 +1,60 @@
+.editar-form {
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    margin-top: 4%;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+input.invalid,
+select.invalid {
+    border: 1px solid red;
+}
+
+.error {
+    color: red;
+    font-size: 0.8em;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 100%;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+button:disabled {
+    background: #ccc;
+}
+
+.error {
+    color: red;
+    font-size: 12px;
+}

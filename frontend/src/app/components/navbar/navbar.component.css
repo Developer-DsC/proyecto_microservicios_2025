@@ -1,0 +1,45 @@
+.cart {
+    position: relative;
+  }
+  
+  .user-name {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 5px 30px;
+  }
+  
+  .logout-container {
+    position: absolute;
+    top: 100%; /* Justo debajo del nombre */
+    left: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    margin-top: 5px;
+    padding: 5px;
+    width: 150px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: none;
+    transition: all 0.3s ease;
+  }
+  
+  .logout-container button {
+    width: 100%;
+    padding: 8px;
+    background-color: rgb(230, 65, 65);
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .logout-container button:hover {
+    background-color: darkred;
+  }
+  
+  .cart a:hover {
+    text-decoration: underline;
+  }
+  
+  .logout-container {
+    display: block;
+  }
+  

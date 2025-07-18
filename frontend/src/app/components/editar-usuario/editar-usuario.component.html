@@ -1,0 +1,59 @@
+<app-navbar ngSkipHydration></app-navbar>
+<form [formGroup]="editForm" (ngSubmit)="actualizarUsuario()" class="editar-form" novalidate>
+    <h2>Editar Usuario</h2>
+
+    <!-- Nombre -->
+    <div class="form-group">
+        <label for="nombre">Nombre</label>
+        <input id="nombre" formControlName="nombre" type="text" placeholder="Ingrese el nombre" [class.invalid]="editForm.get('nombre')?.invalid && editForm.get('nombre')?.touched" />
+        <small *ngIf="editForm.get('nombre')?.hasError('required') && editForm.get('nombre')?.touched" class="error">
+      El nombre es obligatorio.
+    </small>
+    </div>
+
+    <!-- Email -->
+    <div class="form-group">
+        <label for="email">Correo Electrónico</label>
+        <input id="email" formControlName="email" type="email" placeholder="Ingrese el correo" [class.invalid]="editForm.get('email')?.invalid && editForm.get('email')?.touched" />
+        <small *ngIf="editForm.get('email')?.hasError('required') && editForm.get('email')?.touched" class="error">
+      El correo es obligatorio.
+    </small>
+        <small *ngIf="editForm.get('email')?.hasError('email') && editForm.get('email')?.touched" class="error">
+      Ingrese un correo válido.
+    </small>
+    </div>
+
+    <!-- Contraseña -->
+    <div class="form-group">
+        <label for="contrasena">Nueva Contraseña</label>
+        <input id="contrasena" formControlName="contrasena" type="password" placeholder="Ingrese nueva contraseña" [class.invalid]="editForm.get('contrasena')?.invalid && editForm.get('contrasena')?.touched" />
+        <small *ngIf="editForm.get('contrasena')?.hasError('required') && editForm.get('contrasena')?.touched" class="error">
+      La contraseña es obligatoria.
+    </small>
+        <small *ngIf="editForm.get('contrasena')?.hasError('required') && editForm.get('contrasena')?.touched" class="error">
+  La contraseña es obligatoria.
+</small>
+        <small *ngIf="editForm.get('contrasena')?.hasError('minlength') && editForm.get('contrasena')?.touched" class="error">
+  La contraseña debe tener al menos 6 caracteres.
+</small>
+        <small *ngIf="editForm.get('contrasena')?.hasError('pattern') && editForm.get('contrasena')?.touched" class="error">
+  La contraseña debe incluir al menos una mayúscula, una minúscula, un número y un carácter especial.
+</small>
+
+    </div>
+
+    <!-- Rol solo visible para admin -->
+    <div class="form-group" *ngIf="esAdmin">
+        <label for="rol">Rol</label>
+        <select id="rol" formControlName="rol" [class.invalid]="editForm.get('rol')?.invalid && editForm.get('rol')?.touched">
+      <option value="">Seleccione un rol</option>
+      <option value="admin">Administrador</option>
+      <option value="usuario">Usuario</option>
+    </select>
+        <small *ngIf="editForm.get('rol')?.hasError('required') && editForm.get('rol')?.touched" class="error">
+      Seleccione un rol.
+    </small>
+    </div>
+
+    <button type="submit" [disabled]="editForm.invalid">Actualizar</button>
+</form>

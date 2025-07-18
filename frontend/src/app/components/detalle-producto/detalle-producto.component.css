@@ -1,0 +1,225 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #f7f7f7;
+  font-family: 'Arial', sans-serif;
+}
+
+.producto-detalle {
+  display: flex;
+  gap: 20px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  max-width: 900px;
+  width: 90%;
+  position: absolute;
+  top: 15%;
+  left: 20%;
+  margin: -25px 0 0 -25px;
+}
+.botonvolver{
+  display: flex;
+  flex: 1;
+  margin: 3%;
+}
+/* Estilo para la sección de cantidad */
+.cantidad {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.cantidad label {
+  font-size: 16px;
+  font-weight: bold;
+  margin-right: 10px;
+  color: #333;
+}
+
+.cantidad select {
+  padding: 10px;
+  font-size: 14px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  cursor: pointer;
+  width: 80px;
+}
+
+.cantidad select:focus {
+  outline: none;
+  border-color: #007bff;
+  background-color: #e8f0fe;
+}
+
+.cantidad select option {
+  padding: 10px;
+}
+.volver {
+  background-color: #6c757d;
+  color: #fff;
+  padding: 20px 70px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.volver:hover {
+  background-color: #5a6268;
+  transform: scale(1.05);
+}
+
+.imagen-principal {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.imagen-principal img {
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  background-color: #f9f9f9;
+}
+
+.info-detalle {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+h1 {
+  font-size: 24px;
+  margin: 0;
+  color: #333;
+  font-weight: bold;
+}
+
+.descripcion {
+  color: #555;
+  font-size: 14px;
+}
+
+.marca, .talla, .precio {
+  font-size: 16px;
+  color: #444;
+}
+
+.precio {
+  font-weight: bold;
+  color: #ff9900;
+}
+
+.stock {
+  font-size: 16px;
+  font-weight: bold;
+  color: #d9534f;
+}
+
+.botones {
+  margin-top: 20px;
+  display: flex;
+  gap: 10px;
+}
+
+.botones button {
+  padding: 10px 20px;
+  font-size: 14px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botones button:first-child {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.botones button:first-child:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
+}
+
+.botones button:last-child {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+.botones button:last-child:hover {
+  background-color: #cc7a00;
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .producto-detalle {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .imagen-principal img {
+    max-width: 100%;
+  }
+
+  .info-detalle {
+    text-align: center;
+    gap: 15px;
+  }
+
+  .botones {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .botones button {
+    width: 100%;
+  }
+}
+
+.linea {
+  border: none;
+  height: 2px;
+  background-color: #ddd;
+  margin-top: 3px;
+  width: 100%; /* O ajusta al tamaño deseado */
+}
+/* Ajustar el diseño del atributo y valor */
+.atributo {
+  font-size: 18px;
+  color: #555;
+  font-weight: normal;
+  margin-right: 5px;
+}
+
+.valor {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Estilo para precio */
+.precio .valor {
+  font-size: 30px;
+  color: #ff9900;
+}
+
+/* Estilo para stock */
+.stock .valor {
+  color: #d9534f;
+}

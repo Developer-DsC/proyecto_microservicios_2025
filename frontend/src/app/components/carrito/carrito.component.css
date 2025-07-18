@@ -1,0 +1,102 @@
+/* Contenedor del carrito */
+.carrito-container {
+  max-width: 800px; /* Aumenté el tamaño máximo para mayor flexibilidad */
+  margin: 20px auto;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9; /* Fondo claro para el contenedor */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+/* Elemento del carrito */
+.carrito-item {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #ddd; /* Cambié el color de la línea para mayor suavidad */
+  padding: 15px;
+  transition: background-color 0.3s ease; /* Transición suave para el hover */
+}
+
+/* Hover en el item del carrito */
+.carrito-item:hover {
+  background-color: #f1f1f1; /* Fondo suave en hover */
+}
+
+/* Imagen del producto */
+.producto-imagen {
+  width: 280px;
+  object-fit: cover;
+  margin-right: 20px; /* Aumenté el espacio entre la imagen y los detalles */
+  border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+/* Detalles del producto */
+.producto-detalle {
+  flex: 1;
+  text-align: left;
+  font-size: 16px; /* Ajusté el tamaño de la fuente */
+  color: #333; /* Color de texto oscuro para mejor legibilidad */
+  line-height: 1.5; /* Espaciado entre líneas para mejorar la legibilidad */
+}
+
+/* Botón para vaciar el carrito */
+.btn-vaciar {
+  background-color: #10ebf3; /* Color de fondo más suave */
+  color: white;
+  padding: 12px 20px; /* Padding más grande para mejorar la estética */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+  border-radius: 5px; /* Bordes redondeados en el botón */
+  transition: background-color 0.3s ease; /* Transición suave en el hover */
+}
+
+.btn-vaciar:hover {
+  background-color: #29b2c4; /* Color de fondo más oscuro en hover */
+}
+
+/* Botón para vaciar el carrito */
+.btn-eliminar {
+  background-color: #db1111; /* Color de fondo más suave */
+  color: white;
+  padding: 12px 20px; /* Padding más grande para mejorar la estética */
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px; /* Bordes redondeados en el botón */
+  transition: background-color 0.3s ease; /* Transición suave en el hover */
+}
+
+.btn-eliminar:hover {
+  background-color: #970909; /* Color de fondo más oscuro en hover */
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 600px) {
+  .carrito-container {
+    max-width: 100%; /* El contenedor ocupa todo el ancho en pantallas pequeñas */
+    padding: 10px; /* Reducir el padding en pantallas pequeñas */
+  }
+
+  .carrito-item {
+    flex-direction: column; /* Los elementos se apilan verticalmente */
+    align-items: flex-start; /* Alineación de los elementos hacia la izquierda */
+    padding: 10px;
+  }
+
+  .producto-imagen {
+    margin-right: 0; /* Eliminar el margen derecho en pantallas pequeñas */
+    margin-bottom: 10px; /* Añadir espacio debajo de la imagen */
+  }
+
+  .producto-detalle {
+    font-size: 14px; /* Reducir el tamaño de fuente en dispositivos pequeños */
+  }
+
+  .btn-vaciar {
+    width: 100%; /* Hacer que el botón ocupe todo el ancho en pantallas pequeñas */
+    padding: 15px; /* Aumentar el padding para que el botón sea más grande en dispositivos móviles */
+  }
+}

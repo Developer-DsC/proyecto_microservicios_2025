@@ -72,4 +72,14 @@ export class UsuarioService {
     }
     return throwError(errorMessage);
   }
+
+//grupo 1
+
+
+  getUsuarioId(id: number): Observable<any> {
+    return this.http.get(`${this.apiUrl}/usuarios/id/${id}`, { headers: this.getHeaders() }).pipe(
+      catchError(this.handleError)
+    );
+  }  
+
 }

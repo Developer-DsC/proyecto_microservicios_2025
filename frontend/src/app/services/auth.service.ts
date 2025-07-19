@@ -6,19 +6,29 @@ import { Observable, tap } from 'rxjs';
   providedIn: 'root',
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000/api/auth'; // Ajusta la URL según tu backend
-    private apiAuthService = 'http://localhost:3020/login'; 
+  private apiAuthService = 'http://localhost:3020/login';
 
   constructor(private http: HttpClient) {}
   login(nombreUsuario: string, contrasenia: string): Observable<any> {
-    return this.http.post(`${this.apiAuthService}`, { nombreUsuario, contrasenia }).pipe(
-      tap((response: any) => {
-        if (response.token) {
-          localStorage.setItem('token', response.token);
-          localStorage.setItem('username', nombreUsuario);
-        }
-      })
-    );
+    return this.http
+      .post(`${this.apiAuthService}`, { nombreUsuario, contrasenia })
+      .pipe(
+        tap((response: any) => {
+          if (response.token) {
+            const payload = JSON.parse(atob(response.token.split('.')[1]));
+            localStorage.setItem('token', response.token);
+            localStorage.setItem(
+              'username',
+              payload.nombreUsuario ? payload.nombreUsuario.toString() : null
+            );
+            localStorage.setItem(
+              'id',
+              payload.id ? payload.id.toString() : null
+            );
+            sessionStorage.setItem('rol', payload.rol);
+          }
+        })
+      );
   }
 
   logout(): void {

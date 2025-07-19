@@ -10,7 +10,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class EditarUsuarioComponent implements OnInit {
   esAdmin: boolean = false;
-  usuarioId: string = '';
+  usuarioId: string =  '';
   editForm: FormGroup;
   user: any='';
 
@@ -36,8 +36,9 @@ export class EditarUsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-  this.user = localStorage.getItem('username');
-  this.usuarioId = this.route.snapshot.paramMap.get('id') || '';
+  
+  this.usuarioId = localStorage.getItem('id') ?? '';
+  this.user  = localStorage.getItem('username');
 
   this.usuarioService.getUsuarioById(this.user).subscribe(usuario => {
     this.esAdmin = usuario.rol === 'admin'; // ✅ solo el admin puede ver y editar rol

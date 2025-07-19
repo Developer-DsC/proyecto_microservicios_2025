@@ -28,12 +28,11 @@ export class NavbarComponent {
   }
 
   cargarUsuario(): void {
-    this.user = localStorage.getItem('username');
-    this.usuarioService.getUsuarioById(this.user).subscribe(
+    this.user = localStorage.getItem('id');
+    this.usuarioService.getUsuarioId(this.user).subscribe(
       (data) => {
         this.usuarios = data;
         console.log(this.usuarios);
-        localStorage.setItem('id', this.usuarios.id_usuario);
       },
       (error) => {
         console.error('Error al cargar usuarios', error);
@@ -74,7 +73,7 @@ export class NavbarComponent {
     }
   }
   editar(){
-    this.router.navigate(['/editar-usuario', this.usuarios.id_usuario]);
+    this.router.navigate(['/editar-usuario', this.user]);
   }
   actualizarProducto() {
     if (this.isAdmin()) {

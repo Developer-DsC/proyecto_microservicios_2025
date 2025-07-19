@@ -13,4 +13,8 @@ router.delete("/usuarios/:id", authenticateToken, usuariosController.deleteUsuar
 // Nueva ruta para registrar usuario usando la función de PostgreSQL
 router.post("/usuarios/registro", usuariosController.registrarUsuario);
 
+
+//ruta necesario para grup 1
+router.get("/usuarios/id/:id",  usuariosController.getUsuarioId);
+
 module.exports = router;

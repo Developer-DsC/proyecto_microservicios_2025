@@ -28,8 +28,7 @@ export class LoginComponent {
 
     this.authService.login(email, password).subscribe(
       (response) => {
-        localStorage.setItem('token', response.token);
-        localStorage.setItem('username', email);
+        
         this.router.navigate(['/principal']);
       },
       (error) => {
